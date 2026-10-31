@@ -9,13 +9,23 @@ const SESSIONS_PATH = join(process.cwd(), 'data', 'sessions.json');
 const REDIS_SESSIONS_KEY = 'tots:sessions';
 
 function getRedisClient(): Redis | null {
-  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+  const url =
+    process.env.STORAGE_REST_API_URL ||
+    process.env.KV_REST_API_URL ||
+    process.env.UPSTASH_REDIS_REST_URL;
+  const token =
+    process.env.STORAGE_REST_API_TOKEN ||
+    process.env.KV_REST_API_TOKEN ||
+    process.env.UPSTASH_REDIS_REST_TOKEN;
 
   if (url && token) {
     return new Redis({ url, token });
   }
-  return null;
+  try {
+    return Redis.fromEnv();
+  } catch {
+    return null;
+  }
 }
 
 async function getSessions(): Promise<Set<string>> {

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { PioloAvatar } from '@/components/illustrations/PioloCharacter';
+import ThemeToggle from '@/components/ui/ThemeToggle';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -73,10 +74,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   if (checkingAuth) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F7F7FC]">
+      <div className="min-h-screen flex items-center justify-center bg-[#F7F7FC] dark:bg-[#0D0E12] transition-colors">
         <div className="flex flex-col items-center gap-2.5">
-          <div className="w-8 h-8 border-3 border-[#E6E6EF] border-t-[#17171C] rounded-full animate-spin" />
-          <span className="text-xs font-bold text-[#666779] font-['Nunito',sans-serif]">
+          <div className="w-8 h-8 border-3 border-[#E6E6EF] dark:border-[#2C2C3C] border-t-[#17171C] dark:border-t-white rounded-full animate-spin" />
+          <span className="text-xs font-bold text-[#666779] dark:text-[#9E9EB2] font-['Nunito',sans-serif]">
             Loading...
           </span>
         </div>
@@ -130,33 +131,36 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   ];
 
   return (
-    <div className="min-h-screen bg-[#F0F1F6] flex justify-center selection:bg-[#E6E6EF]">
-      {/* Mobile-Dimensioned App Frame - Pure Monochrome */}
-      <div className="w-full max-w-[440px] min-h-screen bg-white shadow-xs flex flex-col relative border-x border-[#E6E6EF] pb-16">
-        {/* Top Monochrome Admin Header Bar */}
-        <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E6E6EF] px-4 h-14 flex items-center justify-between">
+    <div className="min-h-screen bg-[#F0F1F6] dark:bg-[#09090E] flex justify-center selection:bg-[#E6E6EF] dark:selection:bg-[#34354A] transition-colors">
+      {/* Mobile-Dimensioned App Frame */}
+      <div className="w-full max-w-[440px] min-h-screen bg-white dark:bg-[#0D0E12] shadow-xs flex flex-col relative border-x border-[#E6E6EF] dark:border-[#1A1A24] pb-16 transition-colors">
+        {/* Top Admin Header Bar */}
+        <header className="sticky top-0 z-40 bg-white/95 dark:bg-[#0D0E12]/95 backdrop-blur-md border-b border-[#E6E6EF] dark:border-[#222230] px-4 h-14 flex items-center justify-between transition-colors">
           <Link href="/admin" className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-[#17171C] text-white flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-[#17171C] dark:bg-white text-white dark:text-[#0D0E12] flex items-center justify-center">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
               </svg>
             </div>
             <div>
-              <span className="font-['Nunito',sans-serif] font-black text-sm text-[#17171C]">
+              <span className="font-['Nunito',sans-serif] font-black text-sm text-[#17171C] dark:text-white">
                 TOTS on Piolo
               </span>
-              <span className="text-[10px] text-[#666779] font-bold block -mt-1 font-['Nunito',sans-serif]">
+              <span className="text-[10px] text-[#666779] dark:text-[#8E8E9F] font-bold block -mt-1 font-['Nunito',sans-serif]">
                 Admin Space
               </span>
             </div>
           </Link>
 
           <div className="flex items-center gap-2">
+            {/* Theme Toggle */}
+            <ThemeToggle size="sm" />
+
             <Link
               href="/"
               target="_blank"
               title="View Public Wall"
-              className="w-7 h-7 rounded-full bg-[#F7F7FC] border border-[#E6E6EF] text-[#666779] hover:text-[#17171C] hover:bg-[#EAEAF2] flex items-center justify-center text-xs transition-colors"
+              className="w-7 h-7 rounded-full bg-[#F7F7FC] dark:bg-[#181822] border border-[#E6E6EF] dark:border-[#2C2C3C] text-[#666779] dark:text-[#8E8E9F] hover:text-[#17171C] dark:hover:text-white hover:bg-[#EAEAF2] dark:hover:bg-[#222230] flex items-center justify-center text-xs transition-colors"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
@@ -167,7 +171,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <button
               onClick={handleLogout}
               title="Logout"
-              className="w-7 h-7 rounded-full bg-[#F7F7FC] border border-[#E6E6EF] text-[#666779] hover:text-[#17171C] hover:bg-[#EAEAF2] flex items-center justify-center text-xs transition-colors"
+              className="w-7 h-7 rounded-full bg-[#F7F7FC] dark:bg-[#181822] border border-[#E6E6EF] dark:border-[#2C2C3C] text-[#666779] dark:text-[#8E8E9F] hover:text-[#17171C] dark:hover:text-white hover:bg-[#EAEAF2] dark:hover:bg-[#222230] flex items-center justify-center text-xs transition-colors"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
@@ -176,19 +180,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               </svg>
             </button>
 
-            <div className="w-7 h-7 rounded-full overflow-hidden border border-[#E6E6EF]">
+            <div className="w-7 h-7 rounded-full overflow-hidden border border-[#E6E6EF] dark:border-[#2C2C3C]">
               <PioloAvatar size={28} className="border-none" />
             </div>
           </div>
         </header>
 
         {/* Admin Content Area */}
-        <main className="flex-1 p-4 bg-[#F7F7FC]">
+        <main className="flex-1 p-4 bg-[#F7F7FC] dark:bg-[#0D0E12] transition-colors">
           {children}
         </main>
 
-        {/* Monochrome Bottom Tab Bar */}
-        <nav className="fixed bottom-0 w-full max-w-[440px] z-40 bg-white/95 backdrop-blur-md border-t border-[#E6E6EF] px-3 py-1.5 flex items-center justify-around shadow-xs">
+        {/* Bottom Tab Bar */}
+        <nav className="fixed bottom-0 w-full max-w-[440px] z-40 bg-white/95 dark:bg-[#0D0E12]/95 backdrop-blur-md border-t border-[#E6E6EF] dark:border-[#222230] px-3 py-1.5 flex items-center justify-around shadow-xs transition-colors">
           {navTabs.map((tab) => {
             const isActive = tab.exact
               ? pathname === tab.href
@@ -200,22 +204,22 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 href={tab.href}
                 className={`
                   flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all relative
-                  ${isActive ? 'text-[#17171C] font-black' : 'text-[#8E8E9F] hover:text-[#17171C]'}
+                  ${isActive ? 'text-[#17171C] dark:text-white font-black' : 'text-[#8E8E9F] dark:text-[#5A5A6E] hover:text-[#17171C] dark:hover:text-white'}
                 `}
               >
                 <div className="relative">
                   {tab.icon}
                   {tab.badge !== undefined && (
-                    <span className="absolute -top-1.5 -right-2 min-w-4 h-4 px-1 rounded-full bg-[#17171C] text-white text-[9px] font-black flex items-center justify-center">
+                    <span className="absolute -top-1.5 -right-2 min-w-4 h-4 px-1 rounded-full bg-[#17171C] dark:bg-white text-white dark:text-[#0D0E12] text-[9px] font-black flex items-center justify-center">
                       {tab.badge}
                     </span>
                   )}
                 </div>
-                <span className={`text-[10px] mt-0.5 font-['Nunito',sans-serif] ${isActive ? 'text-[#17171C] font-black' : ''}`}>
+                <span className={`text-[10px] mt-0.5 font-['Nunito',sans-serif] ${isActive ? 'text-[#17171C] dark:text-white font-black' : ''}`}>
                   {tab.label}
                 </span>
                 {isActive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#17171C] mt-0.5" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#17171C] dark:bg-white mt-0.5" />
                 )}
               </Link>
             );

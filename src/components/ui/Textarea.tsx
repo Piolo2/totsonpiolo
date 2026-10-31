@@ -33,8 +33,8 @@ export default function Textarea({
         rows={rows}
         name={name}
         className={`
-          rounded-[14px] border border-[#E6E6EF] bg-white
-          focus:outline-none focus:ring-2 focus:ring-[#4778F5]/20 focus:border-[#4778F5]
+          rounded-none border border-[#E6E6EF] bg-white
+          focus:outline-none focus:ring-2 focus:ring-[#17171C]/20 focus:border-[#17171C]
           p-4 w-full resize-none
           text-[#17171C] placeholder:text-[#9293A5]
           font-['Inter',sans-serif]

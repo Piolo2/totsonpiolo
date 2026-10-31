@@ -66,7 +66,7 @@ function ToastItem({ toast, onRemove }: { toast: Toast; onRemove: (id: number) =
   const Icon = iconMap[toast.type];
 
   return (
-    <div className="bg-white shadow-lg rounded-[14px] px-4 py-3 flex items-center gap-3 animate-slide-in-up">
+    <div className="bg-white shadow-lg rounded-none border border-[#E6E6EF] px-4 py-3 flex items-center gap-3 animate-slide-in-up">
       <Icon />
       <span className="text-sm text-[#17171C] font-['Inter',sans-serif]">{toast.message}</span>
     </div>

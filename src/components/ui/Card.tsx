@@ -18,7 +18,7 @@ export default function Card({
   variant = 'default',
 }: CardProps) {
   return (
-    <div className={`rounded-[20px] p-5 ${variantStyles[variant]} ${className}`}>
+    <div className={`rounded-none p-5 ${variantStyles[variant]} ${className}`}>
       {children}
     </div>
   );

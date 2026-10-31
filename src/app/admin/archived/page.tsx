@@ -77,29 +77,29 @@ export default function AdminArchivedPage() {
   return (
     <div className="space-y-4">
       {/* Header */}
-      <div className="pb-3 border-b border-[#E6E6EF]">
-        <h1 className="font-['Nunito',sans-serif] font-black text-xl text-[#17171C] tracking-tight">
+      <div className="pb-3 border-b border-[#E6E6EF] dark:border-[#222230]">
+        <h1 className="font-['Nunito',sans-serif] font-black text-xl text-[#17171C] dark:text-white tracking-tight">
           Archived Messages
         </h1>
-        <p className="text-[#666779] text-xs mt-0.5">
+        <p className="text-[#666779] dark:text-[#9E9EB2] text-xs mt-0.5">
           Archived messages are hidden from main inbox but preserved here.
         </p>
       </div>
 
-      {/* Messages List - Monochrome */}
+      {/* Messages List */}
       <div className="space-y-3">
         {loading ? (
           <div className="space-y-2.5">
             {[1, 2].map((i) => (
-              <div key={i} className="bg-white rounded-[20px] p-4 border border-[#E6E6EF] animate-pulse h-24" />
+              <div key={i} className="bg-white dark:bg-[#16161D] rounded-none p-4 border border-[#E6E6EF] dark:border-[#272736] animate-pulse h-24" />
             ))}
           </div>
         ) : messages.length === 0 ? (
-          <div className="bg-white rounded-[20px] border border-[#E6E6EF] p-8 text-center">
-            <div className="font-['Nunito',sans-serif] font-bold text-sm text-[#17171C]">
+          <div className="bg-white dark:bg-[#16161D] rounded-none border border-[#E6E6EF] dark:border-[#272736] p-8 text-center transition-colors">
+            <div className="font-['Nunito',sans-serif] font-bold text-sm text-[#17171C] dark:text-white">
               No archived messages
             </div>
-            <p className="text-[11px] text-[#9293A5] mt-1">
+            <p className="text-[11px] text-[#9293A5] dark:text-[#68687D] mt-1">
               Messages you archive from your inbox will be safely kept here.
             </p>
           </div>
@@ -107,35 +107,35 @@ export default function AdminArchivedPage() {
           messages.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-[20px] p-4 border border-[#E6E6EF] shadow-xs flex flex-col gap-2.5"
+              className="bg-white dark:bg-[#16161D] rounded-none p-4 border border-[#E6E6EF] dark:border-[#272736] shadow-xs flex flex-col gap-2.5 transition-colors"
             >
               <div>
-                <div className="flex items-center gap-1.5 text-[10px] text-[#9293A5]">
+                <div className="flex items-center gap-1.5 text-[10px] text-[#9293A5] dark:text-[#68687D]">
                   <span className="font-black uppercase tracking-wider font-['Nunito',sans-serif]">Anonymous</span>
                   <span>• {formatRelativeTime(item.createdAt)}</span>
                 </div>
-                <div className="text-xs sm:text-sm text-[#17171C] font-medium leading-relaxed mt-1">
+                <div className="text-xs sm:text-sm text-[#17171C] dark:text-[#E8E8F0] font-medium leading-relaxed mt-1">
                   {item.content}
                 </div>
                 {item.reply && (
-                  <div className="mt-2 text-xs text-[#17171C] bg-[#F7F7FC] p-2 rounded-xl border border-[#E6E6EF]">
-                    <span className="font-bold text-[#17171C]">Reply:</span> {item.reply}
+                  <div className="mt-2 text-xs text-[#17171C] dark:text-[#E8E8F0] bg-[#F7F7FC] dark:bg-[#1A1A24] p-2 rounded-none border border-[#E6E6EF] dark:border-[#272736] transition-colors">
+                    <span className="font-bold text-[#17171C] dark:text-white">Reply:</span> {item.reply}
                   </div>
                 )}
               </div>
 
-              {/* Actions - Monochrome */}
-              <div className="flex items-center justify-end gap-2 pt-1 border-t border-[#E6E6EF]">
+              {/* Actions */}
+              <div className="flex items-center justify-end gap-2 pt-1 border-t border-[#E6E6EF] dark:border-[#272736]">
                 <button
                   onClick={() => handleUnarchive(item.id)}
                   disabled={actionLoading === item.id}
-                  className="py-1 px-3 rounded-[10px] text-[11px] font-bold text-[#17171C] bg-[#F4F4F8] hover:bg-[#EAEAF2] border border-[#E6E6EF] font-['Nunito',sans-serif] transition-colors"
+                  className="py-1 px-3 rounded-[10px] text-[11px] font-bold text-[#17171C] dark:text-[#EDEDF2] bg-[#F4F4F8] dark:bg-[#1E1E28] hover:bg-[#EAEAF2] dark:hover:bg-[#272736] border border-[#E6E6EF] dark:border-[#272736] font-['Nunito',sans-serif] transition-colors"
                 >
                   Restore to Inbox
                 </button>
                 <button
                   onClick={() => setDeleteTarget(item.id)}
-                  className="py-1 px-2.5 rounded-[10px] text-[11px] font-bold text-[#17171C] bg-white hover:bg-[#F7F7FC] border border-[#E6E6EF] hover:border-black font-['Nunito',sans-serif] transition-colors"
+                  className="py-1 px-2.5 rounded-[10px] text-[11px] font-bold text-[#17171C] dark:text-[#EDEDF2] bg-white dark:bg-[#16161D] hover:bg-[#F7F7FC] dark:hover:bg-[#1E1E28] border border-[#E6E6EF] dark:border-[#272736] hover:border-black dark:hover:border-white font-['Nunito',sans-serif] transition-colors"
                 >
                   Delete
                 </button>

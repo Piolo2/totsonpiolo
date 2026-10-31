@@ -15,11 +15,11 @@ interface ButtonProps {
 }
 
 const variantStyles: Record<string, string> = {
-  primary: 'bg-[#202127] hover:bg-[#35363d] text-white',
-  secondary: 'bg-[#E8E8FA] hover:bg-[#DDE0FA] text-[#17171C]',
-  outline: 'border border-[#E6E6EF] bg-white hover:bg-[#F7F7FC] text-[#17171C]',
+  primary: 'bg-[#202127] dark:bg-white hover:bg-[#35363d] dark:hover:bg-[#EAEAF0] text-white dark:text-[#0D0E12]',
+  secondary: 'bg-[#E8E8FA] dark:bg-[#272736] hover:bg-[#DDE0FA] dark:hover:bg-[#32324A] text-[#17171C] dark:text-[#EDEDF2]',
+  outline: 'border border-[#E6E6EF] dark:border-[#272736] bg-white dark:bg-[#16161D] hover:bg-[#F7F7FC] dark:hover:bg-[#1E1E28] text-[#17171C] dark:text-[#EDEDF2]',
   danger: 'bg-red-500 hover:bg-red-600 text-white',
-  ghost: 'bg-transparent hover:bg-[#F7F7FC] text-[#666779]',
+  ghost: 'bg-transparent hover:bg-[#F7F7FC] dark:hover:bg-[#1E1E28] text-[#666779] dark:text-[#8E8E9F]',
 };
 
 const sizeStyles: Record<string, string> = {
@@ -85,4 +85,3 @@ export default function Button({
     </button>
   );
 }
-

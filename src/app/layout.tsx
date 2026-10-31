@@ -31,8 +31,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${nunito.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col bg-[#F7F7FC] text-[#17171C] font-sans antialiased selection:bg-[#DDE0FA] selection:text-[#17171C]">
+    <html lang="en" suppressHydrationWarning className={`${nunito.variable} ${inter.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var saved = localStorage.getItem('tots_theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (saved === 'dark' || (!saved && prefersDark)) {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-screen flex flex-col bg-[#F7F7FC] dark:bg-[#0D0E12] text-[#17171C] dark:text-[#F2F2F7] font-sans antialiased selection:bg-[#DDE0FA] dark:selection:bg-[#34354A] dark:selection:text-white transition-colors duration-200">
         <Providers>{children}</Providers>
       </body>
     </html>

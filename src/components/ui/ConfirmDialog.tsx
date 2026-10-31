@@ -42,15 +42,15 @@ export default function ConfirmDialog({
       className="fixed inset-0 z-50 flex items-center justify-center"
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm" />
       <div
-        className="relative bg-white rounded-[20px] p-6 max-w-sm mx-auto w-full mx-4"
+        className="relative bg-white dark:bg-[#16161D] rounded-none p-6 max-w-sm mx-auto w-full mx-4 shadow-xl border border-[#E6E6EF] dark:border-[#272736] transition-colors"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-lg font-bold font-['Nunito',sans-serif] text-[#17171C]">
+        <h2 className="text-lg font-bold font-['Nunito',sans-serif] text-[#17171C] dark:text-white">
           {title}
         </h2>
-        <p className="text-sm text-[#666779] mt-2">
+        <p className="text-sm text-[#666779] dark:text-[#9E9EB2] mt-2">
           {description}
         </p>
         <div className="flex gap-3 mt-6 justify-end">
@@ -68,4 +68,3 @@ export default function ConfirmDialog({
     </div>
   );
 }
-

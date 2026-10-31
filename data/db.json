@@ -1,0 +1,59 @@
+{
+  "messages": [
+    {
+      "id": "seed-msg-1",
+      "content": "I've always wanted to talk to you, but I'm too shy.",
+      "createdAt": "2026-10-31T15:58:00.000Z",
+      "isRead": true,
+      "isArchived": false,
+      "reply": "Don't be shy! I'm always open to meeting new people. Thank you for reaching out! 😊",
+      "repliedAt": "2026-10-31T15:59:00.000Z",
+      "isPublished": false,
+      "publishedAt": null
+    },
+    {
+      "id": "seed-msg-2",
+      "content": "Keep doing what you're doing. You're really inspiring!",
+      "createdAt": "2026-10-31T15:45:00.000Z",
+      "isRead": true,
+      "isArchived": false,
+      "reply": "Thank you so much! That means a lot. 💙",
+      "repliedAt": "2026-10-31T15:50:00.000Z",
+      "isPublished": false,
+      "publishedAt": null
+    },
+    {
+      "id": "seed-msg-3",
+      "content": "Can you recommend a good laptop for college?",
+      "createdAt": "2026-10-31T15:00:00.000Z",
+      "isRead": true,
+      "isArchived": false,
+      "reply": null,
+      "repliedAt": null,
+      "isPublished": false,
+      "publishedAt": null
+    },
+    {
+      "id": "ec42e856-f4e3-4a10-8d18-cc9e865e7475",
+      "content": "s;dl\n,",
+      "createdAt": "2026-10-31T16:35:22.514Z",
+      "isRead": true,
+      "isArchived": false,
+      "reply": "blahbahblah",
+      "repliedAt": "2026-10-31T16:36:40.169Z",
+      "isPublished": true,
+      "publishedAt": "2026-10-31T16:36:40.374Z"
+    },
+    {
+      "id": "3dcc27e8-61c2-4052-9ac2-c60a4ae76d04",
+      "content": "dasd",
+      "createdAt": "2026-10-31T17:16:52.200Z",
+      "isRead": true,
+      "isArchived": false,
+      "reply": "sd",
+      "repliedAt": "2026-10-31T17:23:23.584Z",
+      "isPublished": false,
+      "publishedAt": null
+    }
+  ]
+}
